@@ -1,4 +1,3 @@
-// ====== BIẾN DÙNG CHUNG ======
 const userTable = document.getElementById("userTable");
 const saveBtn = document.getElementById("saveBtn");
 
@@ -11,18 +10,12 @@ const groupInput = document.getElementById("group");
 const statusInput = document.getElementById("status");
 
 let editId = null;
-
-// ====== LẤY USER TỪ LOCAL ======
 function getUsers() {
   return JSON.parse(localStorage.getItem("users")) || [];
 }
-
-// ====== LƯU USER ======
 function saveUsers(users) {
   localStorage.setItem("users", JSON.stringify(users));
 }
-
-// ====== RENDER TABLE ======
 function renderUsers() {
   const users = getUsers();
   userTable.innerHTML = "";
@@ -56,8 +49,6 @@ function renderUsers() {
     `;
   });
 }
-
-// ====== THÊM / CẬP NHẬT ======
 saveBtn.addEventListener("click", () => {
   const users = getUsers();
 
@@ -78,25 +69,19 @@ saveBtn.addEventListener("click", () => {
   };
 
   if (editId) {
-    // SỬA
     const index = users.findIndex(u => u.id === editId);
     users[index] = userData;
     editId = null;
   } else {
-    // THÊM
     users.push(userData);
   }
-
   saveUsers(users);
   renderUsers();
   clearForm();
 });
-
-// ====== ĐỔ DỮ LIỆU LÊN FORM ======
 function editUser(id) {
   const users = getUsers();
   const user = users.find(u => u.id === id);
-
   nameInput.value = user.name;
   passwordInput.value = user.password;
   emailInput.value = user.email;
@@ -104,19 +89,14 @@ function editUser(id) {
   roleInput.value = user.role;
   groupInput.value = user.group;
   statusInput.value = user.status;
-
   editId = id;
 }
-
-// ====== XOÁ ======
 function deleteUser(id) {
   if (!confirm("Bạn có chắc muốn xoá?")) return;
   const users = getUsers().filter(u => u.id !== id);
   saveUsers(users);
   renderUsers();
 }
-
-// ====== RESET FORM ======
 function clearForm() {
   nameInput.value = "";
   passwordInput.value = "";
@@ -127,5 +107,4 @@ function clearForm() {
   statusInput.value = "Kích hoạt";
 }
 
-// ====== LOAD LẦN ĐẦU ======
 renderUsers();

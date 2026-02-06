@@ -2,23 +2,15 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>User CRUD</title>
-
-  <!-- Tailwind -->
+  <title>BachKhoa</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
   />
 </head>
-
 <body class="bg-gray-200 p-6">
-
 <div class="grid grid-cols-12 gap-6">
-
-  <!-- ========== USER LIST ========== -->
   <div class="col-span-7 bg-white rounded-lg shadow overflow-hidden">
     <table class="w-full text-sm text-center">
       <thead class="bg-gray-100">
@@ -35,19 +27,11 @@
       <tbody id="userTable"></tbody>
     </table>
   </div>
-
-  <!-- ========== FORM ========== -->
   <div class="col-span-5 bg-white rounded-lg shadow">
-
-    <!-- HEADER -->
     <div class="bg-red-700 text-white px-6 py-3 font-semibold rounded-t-lg">
       Thêm / Sửa người dùng
     </div>
-
-    <!-- BODY -->
     <div class="p-6 grid grid-cols-12 gap-6">
-
-      <!-- ẢNH -->
       <div class="col-span-4">
         <label
           class="flex flex-col items-center justify-center h-60 border-2 border-dashed border-red-300 rounded-lg bg-red-50 cursor-pointer hover:bg-red-100"
@@ -57,42 +41,34 @@
           <input type="file" id="imageInput" hidden>
         </label>
       </div>
-
-      <!-- FORM INPUT -->
       <div class="col-span-8">
         <div class="grid grid-cols-2 gap-4">
-
           <input
             id="name"
             placeholder="Họ & tên (*)"
             class="w-full px-4 py-3 border rounded-md"
           >
-
           <input
             id="password"
             type="password"
             placeholder="Mật khẩu (*)"
             class="w-full px-4 py-3 border rounded-md"
           >
-
           <input
             id="email"
             placeholder="Email (*)"
             class="w-full px-4 py-3 border rounded-md"
           >
-
           <input
             id="phone"
             placeholder="Số điện thoại (*)"
             class="w-full px-4 py-3 border rounded-md"
           >
-
           <input
             id="role"
             placeholder="Chức vụ (*)"
             class="w-full px-4 py-3 border rounded-md"
           >
-
           <select
             id="group"
             class="w-full px-4 py-3 border rounded-md"
@@ -101,7 +77,6 @@
             <option value="admin">Quản trị hệ thống</option>
             <option value="hoc_lai">Học lại</option>
           </select>
-
           <select
             id="status"
             class="col-span-2 w-full px-4 py-3 border rounded-md"
@@ -109,12 +84,9 @@
             <option value="Kích hoạt">Kích hoạt</option>
             <option value="Chưa kích hoạt">Chưa kích hoạt</option>
           </select>
-
         </div>
       </div>
     </div>
-
-    <!-- FOOTER -->
     <div class="flex justify-end gap-3 px-6 py-4 border-t">
       <button class="px-4 py-2 border rounded-md">
         Đóng
@@ -126,11 +98,8 @@
         Lưu người dùng
       </button>
     </div>
-
   </div>
-
 </div>
-
 <script src="main.js"></script>
 </body>
 </html>
